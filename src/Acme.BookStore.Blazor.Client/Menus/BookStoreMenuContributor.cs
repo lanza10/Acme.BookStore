@@ -61,6 +61,20 @@ public class BookStoreMenuContributor : IMenuContributor
         administration.SetSubItemOrder(IdentityMenuNames.GroupName, 2);
         administration.SetSubItemOrder(SettingManagementMenus.GroupName, 3);
 
+        context.Menu.AddItem(
+            new ApplicationMenuItem(
+                "BooksStore",
+                l["Menu:BookStore"],
+                icon: "fa fa-book"
+            ).AddItem(
+                new ApplicationMenuItem(
+                    "BooksStore.Books",
+                    l["Menu:Books"],
+                    url: "/books"
+                )
+            )
+        );
+
         return Task.CompletedTask;
     }
 
